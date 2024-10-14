@@ -1,9 +1,5 @@
-package org.example.webjava;
+package org.example.webjava.Student;
 
-import com.fasterxml.jackson.annotation.JsonTypeId;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -16,4 +12,7 @@ public class Student {
     private String email;
     private String password;
     private String fiel;
+
+    private String name="asdasd";
 }
+
