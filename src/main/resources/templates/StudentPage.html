@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Страница студента</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+
+        h1 {
+            margin-top: 50px;
+            color: #333;
+        }
+
+        form {
+            margin-top: 30px;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0;
+            font-size: 18px;
+            color: #333;
+        }
+
+        input[type="file"], textarea, button {
+            display: block;
+            margin: 10px auto;
+            padding: 10px;
+            width: 80%;
+            max-width: 400px;
+        }
+
+        textarea {
+            height: 100px;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+    </style>
+</head>
+<body>
+
+<h1>Загрузка курсовой работы</h1>
+
+<form action="/upload" method="post" enctype="multipart/form-data">
+    <label for="coursework">Загрузите файл курсовой работы:</label>
+    <input type="file" id="coursework" name="coursework" required>
+
+    <label for="comment">Ваш комментарий:</label>
+    <textarea id="comment" name="comment" placeholder="Оставьте комментарий (необязательно)"></textarea>
+
+    <button type="submit">Отправить</button>
+</form>
+
+<p>Если необходимо перезагрузить работу, просто повторно отправьте файл с новым комментарием.</p>
+
+</body>
+</html>

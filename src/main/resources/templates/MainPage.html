@@ -4,15 +4,77 @@
       xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Main page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная страница</title>
+    <style>
+        /* Стили для кнопки регистрации/входа */
+        .registration-link {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 10px 15px;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Эффект при наведении на ссылку */
+        .registration-link:hover {
+            background-color: #28a745 /* Темно-синий цвет при наведении */
+        }
+
+        /* Основные стили для всей страницы */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+
+        /* Стиль для заголовка */
+        h1 {
+            margin-top: 50px;
+            color: #333;
+        }
+
+        /* Ссылки для перехода на страницы преподавателя и студента */
+        .page-links {
+            margin-top: 30px;
+        }
+
+        .page-links a {
+            display: block;
+            margin: 10px auto;
+            padding: 10px 15px;
+            width: 200px;
+            background-color: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .page-links a:hover {
+            background-color: #28a745; /* Темно-зеленый цвет при наведении */
+        }
+    </style>
 </head>
 <body>
-<p>goidf</p>
-<a href="/teacher"><p>Перейти на старницу препода</p></a>
-<h1 th:text="'Добро пожаловать, ' + ${username}">Добро пожаловать!</h1>
-<a href="/registrations"><p>Зарешистрироваться/Войти</p></a>
-<P>adasdas</P>
 
-<p>asfafmksdfnosdnfasnnfdasdnlkgf</p>
+<!-- Кнопка для регистрации/входа -->
+<a href="/registrations" class="registration-link">Зарегистрироваться/Войти</a>
+
+<!-- Заголовок приветствия -->
+<h1 th:text="'Добро пожаловать, ' + ${username}">Добро пожаловать!</h1>
+
+<!-- Ссылки на страницы преподавателя и студента -->
+<div class="page-links">
+    <a href="/teacher">Перейти на страницу преподавателя</a>
+    <a href="/student">Перейти на страницу студента</a>
+</div>
+
 </body>
 </html>

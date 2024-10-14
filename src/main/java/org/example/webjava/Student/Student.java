@@ -13,6 +13,6 @@ public class Student {
     private String password;
     private String fiel;
 
-    private String name="asdasd";
+    private String name;
 }
 

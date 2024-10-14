@@ -1,11 +1,81 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="https://www.thymeleaf.org">
+<html lang="ru" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Страница преподавателя</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+      text-align: center;
+    }
+
+    h1 {
+      margin-top: 50px;
+      color: #333;
+    }
+
+    form {
+      margin-top: 30px;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0;
+      font-size: 18px;
+      color: #333;
+    }
+
+    textarea, button, select {
+      display: block;
+      margin: 10px auto;
+      padding: 10px;
+      width: 80%;
+      max-width: 400px;
+    }
+
+    textarea {
+      height: 100px;
+    }
+
+    select {
+      width: 50%;
+    }
+
+    button {
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+  </style>
 </head>
 <body>
-<h6> Произошла гойда</h6>
+
+<h1>Проверка курсовой работы</h1>
+
+<form action="/review" method="post">
+  <label for="comment">Ваш комментарий:</label>
+  <textarea id="comment" name="comment" placeholder="Оставьте комментарий"></textarea>
+
+  <label for="status">Статус работы:</label>
+  <select id="status" name="status" required>
+    <option value="approved">Допущен</option>
+    <option value="revision">Доработать к сдаче</option>
+    <option value="rejected">Не допущен</option>
+  </select>
+
+  <button type="submit">Отправить результаты проверки</button>
+</form>
+
 </body>
 </html>
