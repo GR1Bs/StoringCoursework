@@ -31,7 +31,7 @@
             margin-top: 10px;
         }
 
-        input[type="email"], input[type="password"], select {
+        input[type="email"], input[type="password"], select, input[type="text"] {
             width: 100%;
             padding: 8px;
             margin-top: 5px;
@@ -54,12 +54,48 @@
         input[type="submit"]:hover {
             background-color: #218838;
         }
+
+        .hidden {
+            display: none;
+        }
     </style>
-</head>
+    <script>
+        // Функция для показа/скрытия полей в зависимости от выбранной роли
+        function handleRoleChange() {
+            const role = document.getElementById("role").value;
+            const groupField = document.getElementById("groupField");
+
+            if (role === "student") {
+                groupField.classList.remove("hidden");
+            } else {
+                groupField.classList.add("hidden");
+            }
+        }
+    </script>
+    </head>
 <body>
 <div class="registration-container">
     <h2>Регистрация</h2>
     <form action="/register" method="POST">
+
+
+        <!-- Выбор роли пользователя -->
+        <label for="role">Выберите тип учетной записи</label>
+        <select id="role" name="role" required onchange="handleRoleChange()">
+            <option value="teacher">Преподаватель</option>
+            <option value="student">Студент</option>
+
+        </select>
+
+        <!-- Поле для выбора группы студента, которое показывается только для студентов -->
+        <div id="groupField" class="hidden">
+            <label for="group">Введите группу студента</label>
+            <input type="text" id="group" name="group" placeholder="Введите вашу группу">
+        </div>
+
+        <!--Поле для ввода фио-->
+        <label for="fullName">Введите ваше ФИО</label>
+        <input type="text" id="fullName" name="fullName" >
         <!-- Поле для ввода почты -->
         <label for="email">Введите почту</label>
         <input type="email" id="email" name="email" placeholder="example@mail.com" required>
@@ -67,14 +103,6 @@
         <!-- Поле для ввода пароля -->
         <label for="password">Введите пароль</label>
         <input type="password" id="password" name="password" placeholder="Введите пароль" required>
-
-        <!-- Выбор роли пользователя -->
-        <label for="role">Выберите тип учетной записи</label>
-        <select id="role" name="role" required>
-            <option value="student">Студент</option>
-            <option value="teacher">Преподаватель</option>
-        </select>
-
         <!-- Кнопка отправки формы -->
         <input type="submit" value="Зарегистрироваться">
     </form>
